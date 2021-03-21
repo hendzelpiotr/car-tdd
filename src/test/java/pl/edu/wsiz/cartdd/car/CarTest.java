@@ -32,4 +32,18 @@ class CarTest {
         //then
         Assertions.assertThatThrownBy(() -> car.refuel(fuelLitres)).hasMessageContaining("Negative litres not allowed!");
     }
+
+    @Test
+    void shouldRefuelNoMoreThanTankCapacity() {
+        //given
+        var tankCapacity = 40;
+        var car = new Car(Car.Color.BLACK, Car.Make.FORD, BigDecimal.valueOf(10.0), tankCapacity);
+        var fuelLitres = 50;
+
+        //when
+        car.refuel(fuelLitres);
+
+        //then
+        Assertions.assertThat(car.getFuelLevel()).isEqualTo(tankCapacity);
+    }
 }
