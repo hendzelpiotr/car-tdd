@@ -44,11 +44,14 @@ class Car {
         return BigDecimal.ONE;
     }
 
-    private enum Color {
+    public void refuel(int fuelLitres) {
+    }
+
+    enum Color {
         RED, GREEN, ORANGE, BLACK
     }
 
-    private enum Make {
+    enum Make {
         NISSAN, FORD, MAZDA, TESLA
     }
 }
