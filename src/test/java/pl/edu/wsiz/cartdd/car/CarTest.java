@@ -108,4 +108,25 @@ class CarTest {
         //then
         Assertions.assertThat(car.getDailyOdometer()).isEqualTo(250);
     }
+
+    @Test
+    void shouldResetDailyOdometerOnTheRequest() {
+        //given
+        var fuelConsumption = BigDecimal.valueOf(1.0);
+        var car = new Car(Car.Color.BLACK, Car.Make.FORD, fuelConsumption, 40);
+        var kilometers = 250;
+        car.refuel(40);
+
+        //when
+        car.drive(kilometers);
+
+        //then
+        Assertions.assertThat(car.getDailyOdometer()).isEqualTo(250);
+
+        //when
+        car.resetDailyOdometer();
+
+        //then
+        Assertions.assertThat(car.getDailyOdometer()).isEqualTo(0);
+    }
 }
