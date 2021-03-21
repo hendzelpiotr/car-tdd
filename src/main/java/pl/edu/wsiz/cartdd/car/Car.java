@@ -32,6 +32,18 @@ class Car {
         return tankCapacity;
     }
 
+    public BigDecimal getFuelLevel() {
+        return BigDecimal.ZERO;
+    }
+
+    public BigDecimal getOdometer() {
+        return BigDecimal.TEN;
+    }
+
+    public BigDecimal getDailyOdometer() {
+        return BigDecimal.ONE;
+    }
+
     private enum Color {
         RED, GREEN, ORANGE, BLACK
     }
