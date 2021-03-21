@@ -8,6 +8,7 @@ class Car {
     private Make make;
     private BigDecimal fuelConsumption;
     private Integer tankCapacity;
+    private BigDecimal fuelLevel = BigDecimal.ZERO;
 
     public Car(Color color, Make make, BigDecimal fuelConsumption, Integer tankCapacity) {
         this.color = color;
@@ -33,7 +34,7 @@ class Car {
     }
 
     public BigDecimal getFuelLevel() {
-        return BigDecimal.ZERO;
+        return fuelLevel;
     }
 
     public BigDecimal getOdometer() {

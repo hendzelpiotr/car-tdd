@@ -19,4 +19,17 @@ class CarTest {
         //then
         Assertions.assertThat(car.getFuelLevel()).isPositive();
     }
+
+    @Test
+    void shouldNotRefuelWhenNumberOfLitresIsNegative() {
+        //given
+        var car = new Car(Car.Color.BLACK, Car.Make.FORD, BigDecimal.valueOf(10.0), 40);
+        var fuelLitres = -20;
+
+        //when
+        car.refuel(fuelLitres);
+
+        //then
+        Assertions.assertThatThrownBy(() -> car.refuel(fuelLitres)).hasMessageContaining("Negative litres not allowed!");
+    }
 }
