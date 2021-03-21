@@ -58,6 +58,9 @@ class Car {
         }
     }
 
+    public void drive(int kilometers) {
+    }
+
     enum Color {
         RED, GREEN, ORANGE, BLACK
     }

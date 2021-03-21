@@ -44,4 +44,24 @@ class CarTest {
         //then
         Assertions.assertThat(car.getFuelLevel()).isEqualTo(tankCapacity);
     }
+
+    @Test
+    void shouldDrive() {
+        //given
+        var tankCapacity = 40;
+        var fuelConsumption = BigDecimal.valueOf(10.0);
+        var car = new Car(Car.Color.BLACK, Car.Make.FORD, fuelConsumption, tankCapacity);
+        var kilometers = 30;
+        var dailyOdometerBefore = car.getDailyOdometer();
+        var odometerBefore = car.getOdometer();
+        var fuelLevelBefore = car.getFuelLevel();
+
+        //when
+        car.drive(kilometers);
+
+        //then
+        Assertions.assertThat(car.getDailyOdometer()).isGreaterThan(dailyOdometerBefore);
+        Assertions.assertThat(car.getOdometer()).isGreaterThan(odometerBefore);
+        Assertions.assertThat(car.getFuelLevel()).isGreaterThan(fuelLevelBefore);
+    }
 }
