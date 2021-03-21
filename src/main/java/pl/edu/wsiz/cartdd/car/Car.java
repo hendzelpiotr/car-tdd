@@ -81,6 +81,7 @@ class Car {
     }
 
     public void resetDailyOdometer() {
+        dailyOdometer = 0;
     }
 
     enum Color {
