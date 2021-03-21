@@ -55,6 +55,7 @@ class CarTest {
         var dailyOdometerBefore = car.getDailyOdometer();
         var odometerBefore = car.getOdometer();
         var fuelLevelBefore = car.getFuelLevel();
+        car.refuel(40);
 
         //when
         car.drive(kilometers);
