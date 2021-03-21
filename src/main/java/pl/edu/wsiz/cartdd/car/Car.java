@@ -16,6 +16,22 @@ class Car {
         this.tankCapacity = tankCapacity;
     }
 
+    public Color getColor() {
+        return color;
+    }
+
+    public Make getMake() {
+        return make;
+    }
+
+    public BigDecimal getFuelConsumption() {
+        return fuelConsumption;
+    }
+
+    public Integer getTankCapacity() {
+        return tankCapacity;
+    }
+
     private enum Color {
         RED, GREEN, ORANGE, BLACK
     }
