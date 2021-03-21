@@ -59,6 +59,10 @@ class Car {
     }
 
     public void drive(int kilometers) {
+        var maxAllowedDistance = (fuelLevel * 100) / fuelConsumption.doubleValue();
+        if (kilometers > maxAllowedDistance) {
+            throw new RuntimeException("Not enough fuel!");
+        }
     }
 
     enum Color {
