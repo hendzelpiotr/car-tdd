@@ -64,4 +64,17 @@ class CarTest {
         Assertions.assertThat(car.getOdometer()).isGreaterThan(odometerBefore);
         Assertions.assertThat(car.getFuelLevel()).isGreaterThan(fuelLevelBefore);
     }
+
+    @Test
+    void shouldNotAllowToDriveIfFuelLevelIsNotEnough() {
+        //given
+        var fuelConsumption = BigDecimal.valueOf(10.0);
+        var car = new Car(Car.Color.BLACK, Car.Make.FORD, fuelConsumption, 40);
+        var kilometers = 500;
+        car.refuel(40);
+
+        //when
+        //then
+        Assertions.assertThatThrownBy(() -> car.drive(kilometers)).hasMessageContaining("Not enough fuel!");
+    }
 }
