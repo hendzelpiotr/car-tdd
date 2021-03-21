@@ -49,6 +49,13 @@ class Car {
         if (fuelLitres < 0) {
             throw new RuntimeException("Negative litres not allowed!");
         }
+
+        int litresAfterRefuel = fuelLitres + fuelLevel;
+        if (litresAfterRefuel > tankCapacity) {
+            fuelLevel = tankCapacity;
+        } else {
+            fuelLevel = litresAfterRefuel;
+        }
     }
 
     enum Color {
