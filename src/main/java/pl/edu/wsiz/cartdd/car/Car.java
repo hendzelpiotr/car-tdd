@@ -9,6 +9,11 @@ class Car {
     private BigDecimal fuelConsumption;
     private Integer tankCapacity;
     private Integer fuelLevel = 0;
+    private Integer dailyOdometer = 0;
+    private Integer odometer = 0;
+
+    private static final int MAX_ODOMETER = 10000;
+    private static final int MAX_DAILY_ODOMETER = 1000;
 
     public Car(Color color, Make make, BigDecimal fuelConsumption, Integer tankCapacity) {
         this.color = color;
@@ -37,12 +42,12 @@ class Car {
         return fuelLevel;
     }
 
-    public BigDecimal getOdometer() {
-        return BigDecimal.TEN;
+    public Integer getOdometer() {
+        return odometer;
     }
 
-    public BigDecimal getDailyOdometer() {
-        return BigDecimal.ONE;
+    public Integer getDailyOdometer() {
+        return dailyOdometer;
     }
 
     public void refuel(int fuelLitres) {
@@ -62,6 +67,16 @@ class Car {
         var maxAllowedDistance = (fuelLevel * 100) / fuelConsumption.doubleValue();
         if (kilometers > maxAllowedDistance) {
             throw new RuntimeException("Not enough fuel!");
+        }
+
+        dailyOdometer += kilometers;
+        odometer += kilometers;
+
+        if (dailyOdometer > MAX_DAILY_ODOMETER) {
+            dailyOdometer = dailyOdometer - MAX_DAILY_ODOMETER;
+        }
+        if (odometer > MAX_ODOMETER) {
+            odometer = odometer - MAX_ODOMETER;
         }
     }
 

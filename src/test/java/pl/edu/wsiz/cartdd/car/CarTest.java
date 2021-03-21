@@ -90,7 +90,7 @@ class CarTest {
         car.drive(kilometers);
 
         //then
-        Assertions.assertThat(car.getOdometer().compareTo(BigDecimal.ZERO)).isEqualTo(0);
+        Assertions.assertThat(car.getOdometer()).isEqualTo(0);
     }
 
     @Test
@@ -98,13 +98,13 @@ class CarTest {
         //given
         var fuelConsumption = BigDecimal.valueOf(1.0);
         var car = new Car(Car.Color.BLACK, Car.Make.FORD, fuelConsumption, 40);
-        var kilometers = 1000;
+        var kilometers = 1250;
         car.refuel(40);
 
         //when
         car.drive(kilometers);
 
         //then
-        Assertions.assertThat(car.getDailyOdometer().compareTo(BigDecimal.ZERO)).isEqualTo(0);
+        Assertions.assertThat(car.getDailyOdometer()).isEqualTo(250);
     }
 }
