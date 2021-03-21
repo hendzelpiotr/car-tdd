@@ -27,8 +27,6 @@ class CarTest {
         var fuelLitres = -20;
 
         //when
-        car.refuel(fuelLitres);
-
         //then
         Assertions.assertThatThrownBy(() -> car.refuel(fuelLitres)).hasMessageContaining("Negative litres not allowed!");
     }

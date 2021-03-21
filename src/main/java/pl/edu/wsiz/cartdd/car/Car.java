@@ -46,6 +46,9 @@ class Car {
     }
 
     public void refuel(int fuelLitres) {
+        if (fuelLitres < 0) {
+            throw new RuntimeException("Negative litres not allowed!");
+        }
     }
 
     enum Color {
