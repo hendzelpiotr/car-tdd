@@ -82,15 +82,15 @@ class CarTest {
     void shouldResetOdometerAfterReachLimit() {
         //given
         var fuelConsumption = BigDecimal.valueOf(1.0);
-        var car = new Car(Car.Color.BLACK, Car.Make.FORD, fuelConsumption, 40);
-        var kilometers = 10000;
-        car.refuel(40);
+        var car = new Car(Car.Color.BLACK, Car.Make.FORD, fuelConsumption, 400);
+        var kilometers = 11234;
+        car.refuel(400);
 
         //when
         car.drive(kilometers);
 
         //then
-        Assertions.assertThat(car.getOdometer()).isEqualTo(0);
+        Assertions.assertThat(car.getOdometer()).isEqualTo(1234);
     }
 
     @Test
